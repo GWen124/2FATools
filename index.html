@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>在线2FA工具</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>在线2FA工具</h1>
+    <nav class="nav">
+      <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer">Home</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="hero">在浏览器本地生成 TOTP，不上传任何数据。</div>
+    <section class="panel">
+      <h2>输入密钥或 otpauth URI</h2>
+      <textarea id="input" placeholder="支持：
+- 直接输入 Base32 密钥（不区分空格与大小写）
+- 粘贴 otpauth://totp/... URI
+示例：
+JBSWY3DPEHPK3PXP
+或
+otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example" spellcheck="false"></textarea>
+      <div class="tip">默认算法 SHA-1、步长 30s、位数 6。可通过 otpauth URI 覆盖。</div>
+      <div class="row" style="margin-top:12px;">
+        <button id="parseBtn">点击获取验证码</button>
+        <button id="qrBtn">点击生成二维码</button>
+      </div>
+    </section>
+
+    <section class="panel output">
+      <h2>当前验证码</h2>
+      <div class="code" id="code">------</div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div class="row small output-row" style="margin-top:8px;">
+        <button id="copyBtn">点击复制验证码</button>
+        <span id="meta" class="remaining"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 在线2FA工具 | By <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="author-link">Wen</a></span>
+  </footer>
+
+  <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="otpauth 二维码">
+      <button id="modalClose" class="modal-close" aria-label="关闭">×</button>
+      <h3 class="modal-title">otpauth 二维码</h3>
+      <div id="qrcodeModal" class="modal-body"></div>
+      <div class="modal-actions">
+        <button id="copyUriBtn">复制 otpauth URI</button>
+        <button id="downloadQrBtn">下载二维码 PNG</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="qrcode.min.js"></script>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
