@@ -128,7 +128,7 @@ document.addEventListener('contextmenu', (e) => {
 });
 
 // Initialize remaining label immediately
-els.meta.textContent = '剩余时间还剩:';
+els.meta.textContent = '剩余时间：';
 els.meta.classList.remove('show');
 
 let timer = null;
@@ -139,7 +139,7 @@ async function tick() {
   if (!state.secret) {
     els.code.textContent = '------';
     els.progressBar.style.width = '0%';
-    els.meta.textContent = '剩余时间还剩:';
+    els.meta.textContent = '剩余时间：';
     els.meta.classList.remove('show');
     return;
   }
@@ -147,7 +147,7 @@ async function tick() {
     const { code } = await generateTotp(state.secret, state);
     els.code.textContent = code;
     els.progressBar.style.width = `${(elapsed / state.period) * 100}%`;
-    els.meta.textContent = `剩余时间还剩: ${remain}s`;
+    els.meta.textContent = `剩余时间： ${remain}s`;
     els.meta.classList.add('show');
   } catch (e) {
     els.code.textContent = '错误';
