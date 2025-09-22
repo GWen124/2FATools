@@ -128,7 +128,7 @@ document.addEventListener('contextmenu', (e) => {
 });
 
 // Initialize remaining label immediately
-els.meta.textContent = '剩余时间:';
+els.meta.textContent = '剩余时间还剩:';
 els.meta.classList.remove('show');
 
 let timer = null;
