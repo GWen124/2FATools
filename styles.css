@@ -56,7 +56,7 @@ textarea {
   width: 100%; 
   min-height: 130px; 
   flex: 1;
-  resize: vertical; 
+  resize: none; 
   padding: 12px 12px; 
   color: #f2f6ff;
   background: rgba(8, 14, 32, 0.6);
