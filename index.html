@@ -15,7 +15,6 @@
   </header>
 
   <main class="container">
-    <div class="hero">在浏览器本地生成 TOTP，不上传任何数据。</div>
     <section class="panel">
       <h2>输入密钥或 otpauth URI</h2>
       <textarea id="input" placeholder="支持：
@@ -43,9 +42,12 @@ otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example" 
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-line">© 2020 <a href="https://2fa.gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">2FA.GW124.TOP</a>｜By <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">Wen</a></div>
-  </footer>
+  <div class="bottom-section">
+    <div class="footer-description">您的数据始终留存在本地，本站不会上传、存储或共享任何信息。</div>
+    <footer class="footer">
+      <div class="footer-line">© 2020 <a href="https://2fa.gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">2FA.GW124.TOP</a>｜By <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">Wen</a></div>
+    </footer>
+  </div>
 
   <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="otpauth 二维码">
